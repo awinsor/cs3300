@@ -5,7 +5,6 @@ ruby '2.7.0'
 
 gem 'devise'
 gem 'rails', '~> 5.2.4'
-gem 'sqlite3'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -17,7 +16,13 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
+group :production do
+  gem 'pg', '~> 0.21' # for Heroku deployment
+  gem 'rails_12factor'
+end
+
 group :development, :test do
+  gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
